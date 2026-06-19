@@ -74,9 +74,7 @@ export default function LoginPage() {
       <div className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-sm">
           <div className="flex items-center gap-2 mb-8 lg:hidden">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-600">
-              <Stethoscope className="w-4 h-4 text-white" />
-            </div>
+            <Image src="/logo.png" alt="Logo" width={32} height={32} className="rounded-full" />
             <span className="font-bold text-lg">Cirugia 1 Piso</span>
           </div>
 

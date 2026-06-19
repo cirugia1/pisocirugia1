@@ -78,6 +78,8 @@ export interface Task {
   created_by?: Profile
   due_date?: string
   completed_at?: string
+  completed_by_id?: string
+  completed_by?: Profile
   created_at: string
 }
 
