@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ClínicaQ - Sistema de Ficha Clínica Quirúrgica",
+  title: "Cirugia 1 Piso - Sistema de Ficha Clínica Quirúrgica",
   description: "Sistema integral de gestión clínica para servicios quirúrgicos",
 };
 

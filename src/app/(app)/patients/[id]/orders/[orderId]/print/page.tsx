@@ -79,8 +79,8 @@ export default async function PrintOrderPage({
         <div className="page">
           <div className="header">
             <div className="logo-area">
-              <h1>ClínicaQ</h1>
-              <p>Sistema de Ficha Clínica Quirúrgica</p>
+              <h1>Cirugia 1 Piso</h1>
+              <p>Cirugia 1 Piso</p>
               {order.author?.hospital && <p>{order.author.hospital}</p>}
             </div>
             <div className="doctor-info">

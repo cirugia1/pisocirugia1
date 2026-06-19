@@ -41,12 +41,12 @@ export default function LoginPage() {
           <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-500">
             <Stethoscope className="w-6 h-6 text-white" />
           </div>
-          <span className="text-white font-bold text-xl">ClínicaQ</span>
+          <span className="text-white font-bold text-xl">Cirugia 1 Piso</span>
         </div>
 
         <div>
           <h1 className="text-4xl font-bold text-white mb-4">
-            Sistema de Ficha Clínica Quirúrgica
+            Cirugia 1 Piso
           </h1>
           <p className="text-blue-200 text-lg leading-relaxed">
             Gestión integral de pacientes, notas clínicas, órdenes médicas y recetas para servicios quirúrgicos.
@@ -67,7 +67,7 @@ export default function LoginPage() {
         </div>
 
         <p className="text-slate-500 text-sm">
-          © 2025 ClínicaQ — Sistema de gestión clínica
+          © 2025 Cirugia 1 Piso — Sistema de gestión clínica
         </p>
       </div>
 
@@ -78,7 +78,7 @@ export default function LoginPage() {
             <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-600">
               <Stethoscope className="w-4 h-4 text-white" />
             </div>
-            <span className="font-bold text-lg">ClínicaQ</span>
+            <span className="font-bold text-lg">Cirugia 1 Piso</span>
           </div>
 
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Iniciar sesión</h2>

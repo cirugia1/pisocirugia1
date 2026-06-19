@@ -80,8 +80,8 @@ export default async function PrintPrescriptionPage({
           {/* Header */}
           <div className="header">
             <div className="logo-area">
-              <h1>ClínicaQ</h1>
-              <p>Sistema de Ficha Clínica Quirúrgica</p>
+              <h1>Cirugia 1 Piso</h1>
+              <p>Cirugia 1 Piso</p>
               {rx.author?.hospital && <p>{rx.author.hospital}</p>}
             </div>
             <div className="doctor-info">
