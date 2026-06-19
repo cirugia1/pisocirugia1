@@ -2,7 +2,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import { Stethoscope, Eye, EyeOff, AlertCircle } from 'lucide-react'
+import { Eye, EyeOff, AlertCircle } from 'lucide-react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -38,9 +39,7 @@ export default function LoginPage() {
       {/* Left panel */}
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-slate-900 to-blue-900 flex-col justify-between p-12">
         <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-500">
-            <Stethoscope className="w-6 h-6 text-white" />
-          </div>
+          <Image src="/logo.png" alt="Logo Cirugía General" width={48} height={48} className="rounded-full" />
           <span className="text-white font-bold text-xl">Cirugia 1 Piso</span>
         </div>
 

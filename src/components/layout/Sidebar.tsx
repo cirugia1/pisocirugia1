@@ -1,9 +1,10 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Users, FileText, CheckSquare, Pill,
-  FlaskConical, BookOpen, Settings, LogOut, Stethoscope, ChevronRight
+  FlaskConical, BookOpen, Settings, LogOut, ChevronRight
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { createClient } from '@/lib/supabase/client'
@@ -41,13 +42,11 @@ export default function Sidebar({ profile }: SidebarProps) {
   return (
     <aside className="flex flex-col w-64 min-h-screen bg-slate-900 text-white">
       {/* Logo */}
-      <div className="flex items-center gap-3 px-5 py-5 border-b border-slate-700">
-        <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-blue-500">
-          <Stethoscope className="w-5 h-5 text-white" />
-        </div>
+      <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-700">
+        <Image src="/logo.png" alt="Logo Cirugía General" width={40} height={40} className="rounded-full" />
         <div>
           <p className="font-bold text-sm leading-tight">Cirugia 1 Piso</p>
-          <p className="text-xs text-slate-400">Sistema Quirúrgico</p>
+          <p className="text-xs text-slate-400">H. Dr. Domingo Luciani</p>
         </div>
       </div>
 
