@@ -186,12 +186,11 @@ export default async function PatientDetailPage({ params }: { params: Promise<{ 
       )}
 
       {/* Anamnesis */}
-      {(patient.subjective || patient.anamnesis) && (
+      {patient.anamnesis && (
         <Card>
           <CardHeader><CardTitle className="text-base">Anamnesis</CardTitle></CardHeader>
-          <CardContent className="space-y-4">
-            <InfoField label="Subjetivo" value={patient.subjective} />
-            <InfoField label="Anamnesis Próxima y Remota" value={patient.anamnesis} />
+          <CardContent>
+            <p className="text-sm text-gray-800 whitespace-pre-wrap">{patient.anamnesis}</p>
           </CardContent>
         </Card>
       )}
@@ -237,6 +236,16 @@ export default async function PatientDetailPage({ params }: { params: Promise<{ 
                 </div>
               </div>
             )}
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Subjetivo */}
+      {patient.subjective && (
+        <Card>
+          <CardHeader><CardTitle className="text-base">Subjetivo</CardTitle></CardHeader>
+          <CardContent>
+            <p className="text-sm text-gray-800 whitespace-pre-wrap">{patient.subjective}</p>
           </CardContent>
         </Card>
       )}

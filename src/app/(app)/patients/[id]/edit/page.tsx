@@ -260,18 +260,10 @@ export default function EditPatientPage() {
         {/* Anamnesis */}
         <Card>
           <CardHeader><CardTitle className="text-base">Anamnesis</CardTitle></CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-1.5">
-              <Label>Subjetivo</Label>
-              <Textarea value={form.subjective} onChange={(e: any) => set('subjective', e.target.value)}
-                placeholder="Lo que refiere el paciente: síntomas, molestias, evolución según el paciente..." />
-            </div>
-            <div className="space-y-1.5">
-              <Label>Anamnesis Próxima y Remota</Label>
-              <Textarea value={form.anamnesis} onChange={(e: any) => set('anamnesis', e.target.value)}
-                placeholder="Motivo de consulta, inicio, evolución, síntomas asociados..."
-                rows={5} />
-            </div>
+          <CardContent>
+            <Textarea value={form.anamnesis} onChange={(e: any) => set('anamnesis', e.target.value)}
+              placeholder="Motivo de consulta, inicio, evolución, síntomas asociados..."
+              rows={5} />
           </CardContent>
         </Card>
 
@@ -305,6 +297,15 @@ export default function EditPatientPage() {
                 </SelectContent>
               </Select>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Subjetivo */}
+        <Card>
+          <CardHeader><CardTitle className="text-base">Subjetivo</CardTitle></CardHeader>
+          <CardContent>
+            <Textarea value={form.subjective} onChange={(e: any) => set('subjective', e.target.value)}
+              placeholder="Lo que refiere el paciente: síntomas, molestias, evolución según el paciente..." />
           </CardContent>
         </Card>
 
