@@ -57,7 +57,12 @@ export default function Sidebar({ profile }: SidebarProps) {
            profile.role === 'medico' ? 'Médico' :
            profile.role === 'residente' ? 'Residente' : 'Enfermería'}
         </p>
-        <p className="text-sm font-medium text-white truncate">{profile.full_name}</p>
+        <p className="text-sm font-medium text-white truncate">
+          {(profile as any).prefix && (
+            <span className="text-blue-400 mr-1">{(profile as any).prefix}</span>
+          )}
+          {(profile as any).alias || profile.full_name}
+        </p>
         {profile.specialty && (
           <p className="text-xs text-slate-400 truncate">{profile.specialty}</p>
         )}

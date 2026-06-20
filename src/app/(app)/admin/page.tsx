@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Users, BookOpen, Shield, Activity } from 'lucide-react'
 import { formatDate } from '@/lib/utils'
 import CreateUserForm from './CreateUserForm'
+import EditUserForm from './EditUserForm'
 
 export default async function AdminPage() {
   const supabase = await createClient()
@@ -84,13 +85,24 @@ export default async function AdminPage() {
               {profiles?.map((p: any) => (
                 <div key={p.id} className="flex items-center justify-between p-3 rounded-lg bg-gray-50">
                   <div>
-                    <p className="text-sm font-medium text-gray-900">{p.full_name}</p>
+                    <div className="flex items-center gap-1.5">
+                      {p.prefix && (
+                        <span className="text-xs font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded">
+                          {p.prefix}
+                        </span>
+                      )}
+                      <p className="text-sm font-medium text-gray-900">{p.full_name}</p>
+                      {p.alias && <span className="text-xs text-gray-400">({p.alias})</span>}
+                    </div>
                     <p className="text-xs text-gray-500">{p.email}</p>
                     {p.specialty && <p className="text-xs text-gray-400">{p.specialty}</p>}
                   </div>
-                  <div className="text-right">
-                    <Badge variant={roleColors[p.role] ?? 'secondary'}>{p.role}</Badge>
-                    <p className="text-xs text-gray-400 mt-1">{formatDate(p.created_at)}</p>
+                  <div className="flex items-center gap-2">
+                    <div className="text-right">
+                      <Badge variant={roleColors[p.role] ?? 'secondary'}>{p.role}</Badge>
+                      <p className="text-xs text-gray-400 mt-1">{formatDate(p.created_at)}</p>
+                    </div>
+                    <EditUserForm profile={p} />
                   </div>
                 </div>
               ))}
