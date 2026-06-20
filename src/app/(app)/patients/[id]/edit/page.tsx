@@ -66,6 +66,7 @@ export default function EditPatientPage() {
         family_history: data.family_history ?? '',
         psychobiological_habits: data.psychobiological_habits ?? '',
         anamnesis: data.anamnesis ?? '',
+        subjective: data.subjective ?? '',
         blood_pressure: fe.blood_pressure ?? '',
         heart_rate: fe.heart_rate ?? '',
         respiratory_rate: fe.respiratory_rate ?? '',
@@ -96,7 +97,6 @@ export default function EditPatientPage() {
       respiratory_rate: form.respiratory_rate,
       spo2: form.spo2_value ? `${form.spo2_value}% (${form.spo2_source})` : '',
     }
-
     const physical_exam = {
       skin: form.exam_skin,
       head_neck: form.exam_head_neck,
@@ -126,6 +126,7 @@ export default function EditPatientPage() {
       family_history: form.family_history || null,
       psychobiological_habits: form.psychobiological_habits || null,
       anamnesis: form.anamnesis || null,
+      subjective: form.subjective || null,
       functional_exam,
       physical_exam,
     }).eq('id', patientId)
@@ -259,10 +260,18 @@ export default function EditPatientPage() {
         {/* Anamnesis */}
         <Card>
           <CardHeader><CardTitle className="text-base">Anamnesis</CardTitle></CardHeader>
-          <CardContent>
-            <Textarea value={form.anamnesis} onChange={(e: any) => set('anamnesis', e.target.value)}
-              placeholder="Motivo de consulta, inicio, evolución, síntomas asociados..."
-              rows={5} />
+          <CardContent className="space-y-4">
+            <div className="space-y-1.5">
+              <Label>Subjetivo</Label>
+              <Textarea value={form.subjective} onChange={(e: any) => set('subjective', e.target.value)}
+                placeholder="Lo que refiere el paciente: síntomas, molestias, evolución según el paciente..." />
+            </div>
+            <div className="space-y-1.5">
+              <Label>Anamnesis Próxima y Remota</Label>
+              <Textarea value={form.anamnesis} onChange={(e: any) => set('anamnesis', e.target.value)}
+                placeholder="Motivo de consulta, inicio, evolución, síntomas asociados..."
+                rows={5} />
+            </div>
           </CardContent>
         </Card>
 
@@ -283,17 +292,18 @@ export default function EditPatientPage() {
               <Input value={form.respiratory_rate} onChange={e => set('respiratory_rate', e.target.value)} placeholder="18 rpm" />
             </div>
             <div className="space-y-1.5">
-              <Label>SpO₂</Label>
-              <div className="flex gap-2">
-                <Input value={form.spo2_value} onChange={e => set('spo2_value', e.target.value)} placeholder="98%" className="w-20" />
-                <Select value={form.spo2_source} onValueChange={v => set('spo2_source', v)}>
-                  <SelectTrigger className="flex-1"><SelectValue /></SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="ambiente">Ambiente</SelectItem>
-                    <SelectItem value="O2 complementario">O₂ Complem.</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+              <Label>SpO₂ — Valor</Label>
+              <Input value={form.spo2_value} onChange={e => set('spo2_value', e.target.value)} placeholder="98%" />
+            </div>
+            <div className="space-y-1.5 md:col-span-2">
+              <Label>SpO₂ — Fuente</Label>
+              <Select value={form.spo2_source} onValueChange={v => set('spo2_source', v)}>
+                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Ambiente">Ambiente</SelectItem>
+                  <SelectItem value="O2 complementario">O₂ Complementario</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </CardContent>
         </Card>

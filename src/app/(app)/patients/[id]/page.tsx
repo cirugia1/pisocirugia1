@@ -186,11 +186,12 @@ export default async function PatientDetailPage({ params }: { params: Promise<{ 
       )}
 
       {/* Anamnesis */}
-      {patient.anamnesis && (
+      {(patient.subjective || patient.anamnesis) && (
         <Card>
           <CardHeader><CardTitle className="text-base">Anamnesis</CardTitle></CardHeader>
-          <CardContent>
-            <p className="text-sm text-gray-800 whitespace-pre-wrap">{patient.anamnesis}</p>
+          <CardContent className="space-y-4">
+            <InfoField label="Subjetivo" value={patient.subjective} />
+            <InfoField label="Anamnesis Próxima y Remota" value={patient.anamnesis} />
           </CardContent>
         </Card>
       )}

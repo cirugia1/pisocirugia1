@@ -41,12 +41,14 @@ export default function NewPatientPage() {
     psychobiological_habits: '',
     // Anamnesis
     anamnesis: '',
+    // Subjetivo
+    subjective: '',
     // Examen funcional
     blood_pressure: '',
     respiratory_rate: '',
     heart_rate: '',
     spo2_value: '',
-    spo2_source: 'ambiente',
+    spo2_source: 'Ambiente',
     // Examen físico
     exam_skin: '',
     exam_head_neck: '',
@@ -103,6 +105,7 @@ export default function NewPatientPage() {
       family_history: form.family_history || null,
       psychobiological_habits: form.psychobiological_habits || null,
       anamnesis: form.anamnesis || null,
+      subjective: form.subjective || null,
       functional_exam,
       physical_exam,
       created_by: user!.id,
@@ -235,6 +238,11 @@ export default function NewPatientPage() {
           <CardHeader><CardTitle className="text-base">Anamnesis</CardTitle></CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-1.5">
+              <Label htmlFor="subjective">Subjetivo</Label>
+              <Textarea id="subjective" value={form.subjective} onChange={(e: any) => set('subjective', e.target.value)}
+                placeholder="Lo que refiere el paciente: síntomas, molestias, evolución según el paciente..." />
+            </div>
+            <div className="space-y-1.5">
               <Label htmlFor="anamnesis">Anamnesis Próxima y Remota</Label>
               <Textarea id="anamnesis" value={form.anamnesis} onChange={(e: any) => set('anamnesis', e.target.value)}
                 placeholder="Motivo de consulta, inicio, evolución, síntomas asociados, tratamientos previos..."
@@ -259,18 +267,19 @@ export default function NewPatientPage() {
               <Label htmlFor="respiratory_rate">Frec. Respiratoria</Label>
               <Input id="respiratory_rate" value={form.respiratory_rate} onChange={e => set('respiratory_rate', e.target.value)} placeholder="18 rpm" />
             </div>
-            <div className="space-y-1.5 md:col-span-1">
-              <Label>SpO₂</Label>
-              <div className="flex gap-2">
-                <Input value={form.spo2_value} onChange={e => set('spo2_value', e.target.value)} placeholder="98%" className="w-20" />
-                <Select value={form.spo2_source} onValueChange={v => set('spo2_source', v)}>
-                  <SelectTrigger className="flex-1"><SelectValue /></SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="ambiente">Ambiente</SelectItem>
-                    <SelectItem value="O2 complementario">O₂ Complem.</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+            <div className="space-y-1.5">
+              <Label>SpO₂ — Valor</Label>
+              <Input value={form.spo2_value} onChange={e => set('spo2_value', e.target.value)} placeholder="98%" />
+            </div>
+            <div className="space-y-1.5 md:col-span-2">
+              <Label>SpO₂ — Fuente</Label>
+              <Select value={form.spo2_source} onValueChange={v => set('spo2_source', v)}>
+                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Ambiente">Ambiente</SelectItem>
+                  <SelectItem value="O2 complementario">O₂ Complementario</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </CardContent>
         </Card>
