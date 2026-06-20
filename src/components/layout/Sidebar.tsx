@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Users, FileText, CheckSquare, Pill,
-  FlaskConical, BookOpen, Settings, LogOut, ChevronRight
+  FlaskConical, BookOpen, Settings, LogOut, ChevronRight, UserCircle
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { createClient } from '@/lib/supabase/client'
@@ -114,8 +114,15 @@ export default function Sidebar({ profile }: SidebarProps) {
         )}
       </nav>
 
-      {/* Logout */}
-      <div className="px-3 py-4 border-t border-slate-700">
+      {/* Profile + Logout */}
+      <div className="px-3 py-4 border-t border-slate-700 space-y-1">
+        <Link
+          href="/profile"
+          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-white transition-colors"
+        >
+          <UserCircle className="w-4 h-4" />
+          Mi perfil
+        </Link>
         <button
           onClick={handleLogout}
           className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-white transition-colors"
